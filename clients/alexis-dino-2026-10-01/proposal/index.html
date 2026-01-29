@@ -1,0 +1,948 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>The Knox Signature Wedding Experience</title>
+        <!--
+        ═══════════════════════════════════════════════════════════════
+        KNOX SIGNATURE CLIENT GUIDE — HOTLIST DIGITAL LUXURY EDITION
+        ═══════════════════════════════════════════════════════════════
+
+        Design System:
+        • Consistent vertical rhythm: 16/24/32/48/64/96/120px scale
+        • Typography: Inter with precise weights and tracking
+        • Section padding: 120px desktop / 80px mobile
+        • Content max-width: 1040px
+        • Line-length: 68ch for optimal readability
+        • Color system: Midnight (#0a0a0a) + Snow (#ffffff) + Purple gradient accents
+        • Spacing tokens enforce discipline—no random values
+
+        Hierarchy Pattern:
+        eyebrow (11px, 0.32em tracking, 0.65 opacity)
+        → headline (clamp responsive, -0.03em tracking)
+        → lead paragraph (18px, 1.85 leading, 0.82 opacity)
+        → details/lists (17px, 0.72 opacity)
+        → callout (italic, left border, subtle bg)
+
+        Last updated: 2026-01-27 | Design Director Pass | Hotlist Digital
+        ═══════════════════════════════════════════════════════════════
+        -->
+        <style>
+            /* ═══ RESET & BASE ═══ */
+            *,
+            *::before,
+            *::after {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap");
+
+            /* ═══ DESIGN TOKENS ═══ */
+            :root {
+                /* Colors */
+                --color-midnight: #0a0a0a;
+                --color-midnight-gradient: linear-gradient(
+                    180deg,
+                    #0a0a0a 0%,
+                    #14141a 100%
+                );
+                --color-snow: #ffffff;
+                --color-hotlist-purple: #667eea;
+                --color-hotlist-violet: #764ba2;
+                --color-gradient-primary: linear-gradient(
+                    135deg,
+                    #667eea 0%,
+                    #764ba2 100%
+                );
+
+                /* Typography Scale */
+                --font-family-base:
+                    "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text",
+                    "Segoe UI", sans-serif;
+                --font-family-display:
+                    "Inter", -apple-system, BlinkMacSystemFont,
+                    "SF Pro Display", sans-serif;
+
+                /* Font Sizes (responsive clamp) */
+                --font-size-h1: clamp(44px, 5vw, 64px);
+                --font-size-h2: clamp(30px, 3.5vw, 44px);
+                --font-size-h3: clamp(20px, 2.5vw, 24px);
+                --font-size-body-large: 18px;
+                --font-size-body: 17px;
+                --font-size-eyebrow: 11px;
+                --font-size-price: clamp(56px, 7vw, 76px);
+
+                /* Font Weights */
+                --font-weight-black: 900;
+                --font-weight-extra-bold: 800;
+                --font-weight-bold: 700;
+                --font-weight-semi-bold: 600;
+                --font-weight-medium: 500;
+                --font-weight-regular: 400;
+                --font-weight-light: 300;
+
+                /* Letter Spacing */
+                --tracking-tight: -0.03em;
+                --tracking-snug: -0.02em;
+                --tracking-normal: 0;
+                --tracking-wide: 0.32em;
+
+                /* Line Heights */
+                --leading-none: 1;
+                --leading-tight: 1.05;
+                --leading-snug: 1.1;
+                --leading-relaxed: 1.7;
+                --leading-loose: 1.85;
+
+                /* Spacing Scale (vertical rhythm) - Web optimized */
+                --space-xs: 8px;
+                --space-sm: 12px;
+                --space-md: 20px;
+                --space-lg: 28px;
+                --space-xl: 40px;
+                --space-2xl: 56px;
+                --space-3xl: 72px;
+                --space-4xl: 88px;
+
+                /* Layout */
+                --content-width: 1040px;
+                --content-padding-desktop: 72px;
+                --content-padding-mobile: 36px;
+                --line-length: 68ch;
+
+                /* Borders & Radii */
+                --border-width: 1px;
+                --border-subtle: 1px solid rgba(255, 255, 255, 0.08);
+                --border-whisper: 1px solid rgba(255, 255, 255, 0.04);
+                --radius-sm: 12px;
+                --radius-md: 16px;
+                --radius-lg: 20px;
+
+                /* Shadows */
+                --shadow-subtle: 0 2px 16px rgba(0, 0, 0, 0.12);
+
+                /* Opacity Levels */
+                --opacity-primary: 0.88;
+                --opacity-secondary: 0.72;
+                --opacity-tertiary: 0.58;
+                --opacity-muted: 0.4;
+                --opacity-whisper: 0.25;
+            }
+
+            /* ═══ GLOBAL STYLES ═══ */
+            html {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                text-rendering: optimizeLegibility;
+            }
+
+            body {
+                font-family: var(--font-family-base);
+                background: var(--color-midnight-gradient);
+                background-attachment: fixed;
+                color: var(--color-snow);
+                line-height: var(--leading-relaxed);
+                font-weight: var(--font-weight-regular);
+                font-size: var(--font-size-body);
+            }
+
+            /* ═══ UTILITY CLASSES ═══ */
+            .stack-xs > * + * {
+                margin-top: var(--space-xs);
+            }
+            .stack-sm > * + * {
+                margin-top: var(--space-sm);
+            }
+            .stack-md > * + * {
+                margin-top: var(--space-md);
+            }
+            .stack-lg > * + * {
+                margin-top: var(--space-lg);
+            }
+            .stack-xl > * + * {
+                margin-top: var(--space-xl);
+            }
+            .stack-2xl > * + * {
+                margin-top: var(--space-2xl);
+            }
+
+            .line-length {
+                max-width: var(--line-length);
+            }
+
+            /* ═══ LAYOUT CONTAINERS ═══ */
+            .container {
+                max-width: var(--content-width);
+                margin: 0 auto;
+                padding-left: var(--content-padding-desktop);
+                padding-right: var(--content-padding-desktop);
+            }
+
+            .section {
+                padding-top: var(--space-3xl);
+                padding-bottom: var(--space-3xl);
+                border-top: var(--border-whisper);
+            }
+
+            .section:first-child {
+                border-top: none;
+            }
+
+            /* ═══ TYPOGRAPHY ═══ */
+            .eyebrow {
+                font-size: var(--font-size-eyebrow);
+                font-weight: var(--font-weight-semi-bold);
+                letter-spacing: var(--tracking-wide);
+                text-transform: uppercase;
+                color: rgba(255, 255, 255, var(--opacity-secondary));
+                margin-bottom: var(--space-md);
+            }
+
+            h1,
+            .h1 {
+                font-family: var(--font-family-display);
+                font-size: var(--font-size-h1);
+                font-weight: var(--font-weight-black);
+                letter-spacing: var(--tracking-tight);
+                line-height: var(--leading-tight);
+                color: var(--color-snow);
+                max-width: 28ch;
+            }
+
+            h2,
+            .h2 {
+                font-family: var(--font-family-display);
+                font-size: var(--font-size-h2);
+                font-weight: var(--font-weight-extra-bold);
+                letter-spacing: var(--tracking-snug);
+                line-height: var(--leading-snug);
+                color: var(--color-snow);
+            }
+
+            h3,
+            .h3 {
+                font-family: var(--font-family-display);
+                font-size: var(--font-size-h3);
+                font-weight: var(--font-weight-bold);
+                letter-spacing: var(--tracking-snug);
+                line-height: var(--leading-snug);
+                color: var(--color-snow);
+            }
+
+            .lead {
+                font-size: var(--font-size-body-large);
+                line-height: var(--leading-loose);
+                color: rgba(255, 255, 255, var(--opacity-primary));
+                font-weight: var(--font-weight-light);
+            }
+
+            .body-secondary {
+                color: rgba(255, 255, 255, var(--opacity-secondary));
+                font-weight: var(--font-weight-light);
+            }
+
+            /* ═══ HEADER ═══ */
+            .header {
+                padding-top: var(--space-3xl);
+                padding-bottom: var(--space-2xl);
+            }
+
+            .logo-mark {
+                font-size: 10px;
+                font-weight: var(--font-weight-semi-bold);
+                letter-spacing: 4.5px;
+                text-transform: uppercase;
+                color: rgba(255, 255, 255, var(--opacity-muted));
+                margin-bottom: var(--space-sm);
+            }
+
+            .logo-title {
+                font-family: var(--font-family-display);
+                font-size: 36px;
+                font-weight: var(--font-weight-light);
+                letter-spacing: 0.3px;
+                color: var(--color-snow);
+                line-height: 1.2;
+            }
+
+            .personalization {
+                background: rgba(255, 255, 255, 0.02);
+                border-left: 2px solid rgba(255, 255, 255, 0.1);
+                padding: var(--space-xl);
+                margin-top: var(--space-2xl);
+                border-radius: var(--radius-sm);
+            }
+
+            .personalization .eyebrow {
+                opacity: var(--opacity-tertiary);
+            }
+
+            .personalization h2 {
+                font-size: 26px;
+                font-weight: var(--font-weight-medium);
+                margin-bottom: var(--space-md);
+                line-height: 1.4;
+            }
+
+            .personalization p {
+                font-size: 16px;
+                color: rgba(255, 255, 255, var(--opacity-tertiary));
+                line-height: var(--leading-loose);
+            }
+
+            .video-embed {
+                margin-top: var(--space-lg);
+            }
+
+            .video-embed--half {
+                width: 50%;
+                max-width: 520px;
+                min-width: 280px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            @media (max-width: 768px) {
+                .video-embed--half {
+                    width: 100%;
+                }
+            }
+
+            .video-frame {
+                position: relative;
+            }
+
+            .video-embed video {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: var(--radius-sm);
+                box-shadow: var(--shadow-lg);
+                background: #000;
+            }
+
+            .video-play {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 72px;
+                height: 72px;
+                border-radius: 999px;
+                border: 1px solid rgba(255, 255, 255, 0.7);
+                background: rgba(0, 0, 0, 0.35);
+                backdrop-filter: blur(2px);
+                display: grid;
+                place-items: center;
+                cursor: pointer;
+                transition: opacity 180ms ease;
+            }
+
+            .video-play::before {
+                content: "";
+                border-left: 18px solid #fff;
+                border-top: 11px solid transparent;
+                border-bottom: 11px solid transparent;
+                margin-left: 4px;
+            }
+
+            .video-play.is-hidden {
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            /* ═══ HERO ═══ */
+            .hero {
+                padding-top: var(--space-3xl);
+                padding-bottom: var(--space-2xl);
+            }
+
+            .hero-image {
+                margin-top: var(--space-2xl);
+                margin-bottom: var(--space-3xl);
+            }
+
+            .hero-image img {
+                width: 100%;
+                height: auto;
+                display: block;
+                opacity: 0.94;
+            }
+
+            /* ═══ PRODUCTION IMAGE SHOWCASE ═══ */
+            .production-showcase {
+                margin-top: var(--space-2xl);
+                margin-bottom: var(--space-3xl);
+            }
+
+            .production-showcase img {
+                width: 100%;
+                height: auto;
+                display: block;
+                opacity: 0.96;
+                border-radius: var(--radius-sm);
+            }
+
+            /* ═══ LISTS ═══ */
+            .styled-list {
+                list-style: none;
+                margin: var(--space-xl) 0;
+            }
+
+            .styled-list li {
+                position: relative;
+                padding-left: 28px;
+                margin-bottom: var(--space-sm);
+                font-size: var(--font-size-body);
+                color: rgba(255, 255, 255, var(--opacity-secondary));
+                line-height: var(--leading-relaxed);
+            }
+
+            .styled-list li::before {
+                content: "—";
+                position: absolute;
+                left: 0;
+                color: rgba(255, 255, 255, var(--opacity-whisper));
+                font-weight: var(--font-weight-light);
+            }
+
+            /* ═══ CALLOUT ═══ */
+            .callout {
+                background: rgba(255, 255, 255, 0.025);
+                border-left: 2px solid rgba(102, 126, 234, 0.4);
+                padding: var(--space-lg);
+                margin: var(--space-xl) 0;
+                border-radius: var(--radius-sm);
+            }
+
+            .callout p {
+                font-style: italic;
+                color: rgba(255, 255, 255, var(--opacity-primary));
+                font-size: var(--font-size-body);
+                line-height: var(--leading-relaxed);
+                margin: 0;
+            }
+
+            /* ═══ PHASE SUBSECTIONS ═══ */
+            .phase {
+                margin-top: var(--space-2xl);
+                margin-bottom: var(--space-2xl);
+            }
+
+            .phase:first-child {
+                margin-top: var(--space-xl);
+            }
+
+            .phase h3 {
+                margin-bottom: var(--space-md);
+            }
+
+            /* ═══ INVESTMENT / PRICE ═══ */
+            .package-card {
+                background: rgba(255, 255, 255, 0.02);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: var(--radius-md);
+                padding: var(--space-xl);
+                margin-top: var(--space-xl);
+                transition: all 300ms ease;
+            }
+
+            .package-card:hover {
+                background: rgba(255, 255, 255, 0.035);
+                border-color: rgba(255, 255, 255, 0.12);
+                transform: translateY(-2px);
+            }
+
+            .package-featured {
+                border: 2px solid rgba(102, 126, 234, 0.3);
+                background: rgba(102, 126, 234, 0.04);
+            }
+
+            .package-featured:hover {
+                border-color: rgba(102, 126, 234, 0.5);
+                background: rgba(102, 126, 234, 0.06);
+            }
+
+            .package-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                margin-bottom: var(--space-md);
+                flex-wrap: wrap;
+                gap: var(--space-sm);
+            }
+
+            .package-name {
+                font-family: var(--font-family-display);
+                font-size: 28px;
+                font-weight: var(--font-weight-semi-bold);
+                color: var(--color-snow);
+                margin: 0;
+            }
+
+            .package-price {
+                font-family: var(--font-family-display);
+                font-size: 38px;
+                font-weight: var(--font-weight-black);
+                letter-spacing: var(--tracking-tight);
+                color: var(--color-snow);
+            }
+
+            .package-description {
+                font-size: 16px;
+                color: rgba(255, 255, 255, var(--opacity-secondary));
+                margin-bottom: var(--space-lg);
+                font-style: italic;
+            }
+
+            .package-card .styled-list {
+                margin-top: var(--space-md);
+                margin-bottom: 0;
+            }
+
+            /* ═══ CLOSING ═══ */
+            .closing {
+                padding-top: var(--space-3xl);
+                padding-bottom: var(--space-3xl);
+                text-align: center;
+                border-top: var(--border-whisper);
+            }
+
+            .closing p {
+                font-family: var(--font-family-display);
+                font-size: 22px;
+                font-weight: var(--font-weight-light);
+                line-height: 1.6;
+                color: rgba(255, 255, 255, var(--opacity-primary));
+                max-width: 680px;
+                margin: 0 auto;
+            }
+
+            /* ═══ FOOTER ═══ */
+            .footer {
+                padding-top: var(--space-2xl);
+                padding-bottom: var(--space-3xl);
+                border-top: var(--border-whisper);
+            }
+
+            .footer-logo {
+                font-size: 10px;
+                font-weight: var(--font-weight-semi-bold);
+                letter-spacing: 4px;
+                text-transform: uppercase;
+                color: rgba(255, 255, 255, var(--opacity-muted));
+                margin-bottom: var(--space-md);
+            }
+
+            .footer-tagline {
+                font-family: var(--font-family-display);
+                font-size: 17px;
+                font-weight: var(--font-weight-light);
+                color: rgba(255, 255, 255, var(--opacity-tertiary));
+                margin-bottom: var(--space-lg);
+            }
+
+            .footer-contact {
+                font-size: 15px;
+                color: rgba(255, 255, 255, var(--opacity-tertiary));
+                line-height: 2.2;
+            }
+
+            .footer-contact a {
+                color: rgba(255, 255, 255, var(--opacity-secondary));
+                text-decoration: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+                padding-bottom: 1px;
+                transition: all 200ms ease;
+            }
+
+            .footer-contact a:hover {
+                color: var(--color-snow);
+                border-bottom-color: rgba(255, 255, 255, 0.5);
+            }
+
+            /* ═══ GRADIENT ACCENT (HOTLIST PURPLE) ═══ */
+            .gradient-accent {
+                background: var(--color-gradient-primary);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            /* ═══ RESPONSIVE ═══ */
+            @media (max-width: 768px) {
+                :root {
+                    --content-padding-desktop: var(--content-padding-mobile);
+                    --space-4xl: 64px;
+                    --space-3xl: 48px;
+                    --space-2xl: 40px;
+                }
+
+                .section {
+                    padding-top: 48px;
+                    padding-bottom: 48px;
+                }
+
+                .hero {
+                    padding-top: 48px;
+                    padding-bottom: 40px;
+                }
+
+                .header {
+                    padding-top: 48px;
+                    padding-bottom: 40px;
+                }
+
+                .hero-image {
+                    margin-top: 40px;
+                    margin-bottom: 48px;
+                }
+
+                .production-showcase {
+                    margin-top: 40px;
+                    margin-bottom: 48px;
+                }
+            }
+
+            /* ═══ PRINT STYLES ═══ */
+            @media print {
+                body {
+                    -webkit-print-color-adjust: exact;
+                    print-color-adjust: exact;
+                    background: var(--color-midnight);
+                }
+            }
+
+            /* ═══ REDUCED MOTION ═══ */
+            @media (prefers-reduced-motion: reduce) {
+                *,
+                *::before,
+                *::after {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- HEADER -->
+        <header class="header container">
+            <div class="logo-section">
+                <div class="logo-mark">KNOX SIGNATURE</div>
+                <div class="logo-title">Luxury Sax + DJ Atmospheres</div>
+            </div>
+
+            <div class="personalization">
+                <div class="eyebrow">FOR ALEXIS & DINO</div>
+                <h2>Thank you for our conversation.</h2>
+                <p>
+                    It was a pleasure speaking with you about your wedding on
+                    October 1, 2026 at The French Farmhouse. We're excited to
+                    design an atmosphere that reflects your vision and creates
+                    an unforgettable experience for you and your guests. Below
+                    is a personalized video of Jubel (I think this is the song
+                    you were talking about with the napkins).
+                </p>
+                <div class="video-embed video-embed--half">
+                    <div class="video-frame">
+                        <video
+                            class="video-player"
+                            controls
+                            preload="metadata"
+                            playsinline
+                            poster="https://anna-max-proposal.vercel.app/assets/knox-video-cover-art.png"
+                            src="https://anna-max-proposal.vercel.app/assets/videos/knox-anna-max-personal-video.mov"
+                        ></video>
+                        <button
+                            class="video-play"
+                            type="button"
+                            aria-label="Play personalized video"
+                        ></button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- HERO -->
+        <section class="hero container">
+            <div class="stack-lg">
+                <div class="eyebrow">THE KNOX SIGNATURE WEDDING EXPERIENCE</div>
+                <h1>
+                    A single, cohesive atmosphere that evolves throughout your
+                    wedding day.
+                </h1>
+                <p class="lead line-length">
+                    Knox Signature designs the complete sound and energy of your
+                    wedding—from cocktail hour to final song. Rather than
+                    treating each moment as a separate service, we approach the
+                    evening as one continuous experience with intention, flow,
+                    and restraint.
+                </p>
+                <p class="lead line-length">
+                    Our role is to shape how the room feels from the first note
+                    to the final song.
+                </p>
+            </div>
+
+            <div class="hero-image">
+                <img
+                    src="https://anna-max-proposal.vercel.app/assets/Images/Performance/what-we-are.png"
+                    alt="Knox Signature performing live"
+                />
+            </div>
+        </section>
+
+        <!-- COCKTAIL HOUR SECTION -->
+        <section class="section container">
+            <div class="stack-xl">
+                <div>
+                    <div class="eyebrow">01 — COCKTAIL HOUR</div>
+                    <h2>Live performance that sets the tone.</h2>
+                </div>
+
+                <p class="lead line-length">
+                    Cocktail hour is performed live and curated to set the tone
+                    for the night.
+                </p>
+
+                <p class="body-secondary line-length">
+                    Phillip performs piano with Ben on saxophone, blending live
+                    instrumentation with modern stylings and carefully selected
+                    tracks when appropriate. The result is social, elevated, and
+                    engaging without feeling like background music.
+                </p>
+
+                <div class="callout line-length">
+                    <p>
+                        This is designed to feel welcoming and memorable as
+                        guests transition into the evening.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIDEO INSERT -->
+        <section class="section container">
+            <div class="video-embed">
+                <video
+                    controls
+                    preload="metadata"
+                    playsinline
+                    src="https://anna-max-proposal.vercel.app/assets/videos/knox-dj-video.mov"
+                ></video>
+            </div>
+        </section>
+
+        <!-- RECEPTION SECTION -->
+        <section class="section container">
+            <div class="stack-xl">
+                <div>
+                    <div class="eyebrow">02 — RECEPTION</div>
+                    <h2>The reception unfolds naturally in two phases.</h2>
+                </div>
+
+                <div class="phase">
+                    <h3>Dinner</h3>
+                    <ul class="styled-list line-length">
+                        <li>
+                            Thoughtful music selection that supports
+                            conversation
+                        </li>
+                        <li>
+                            Seamless handling of toasts using wireless
+                            microphones
+                        </li>
+                        <li>Optional live accents to complement key moments</li>
+                    </ul>
+                </div>
+
+                <div class="phase">
+                    <h3>Dance</h3>
+                    <ul class="styled-list line-length">
+                        <li>DJ-led set with live saxophone integration</li>
+                        <li>Energy builds intentionally without gimmicks</li>
+                        <li>
+                            Clean, minimal visual presentation that complements
+                            the room
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="callout line-length">
+                    <p>
+                        The goal is a packed dance floor that still feels
+                        refined and intentional.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCTION IMAGE SHOWCASE -->
+        <section class="container">
+            <div class="production-showcase">
+                <img
+                    src="https://anna-max-proposal.vercel.app/assets/Images/knox-signature-set-1.png"
+                    alt="Knox Signature production setup with minimal white DJ booth, architectural lighting, and saxophone"
+                />
+            </div>
+        </section>
+
+        <!-- PRODUCTION & DESIGN SECTION -->
+        <section class="section container">
+            <div class="stack-xl">
+                <div>
+                    <div class="eyebrow">PRODUCTION & DESIGN</div>
+                    <h2>Minimal, architectural, and integrated.</h2>
+                </div>
+
+                <p class="lead line-length">
+                    Our setup is designed to be minimal, architectural, and
+                    integrated into the space.
+                </p>
+
+                <div class="stack-md">
+                    <p class="body-secondary line-length">This includes:</p>
+                    <ul class="styled-list line-length">
+                        <li>A clean, white DJ command center</li>
+                        <li>
+                            Premium column-array sound on both sides of the room
+                        </li>
+                        <li>
+                            Architectural lighting to shape the space without
+                            overpowering it
+                        </li>
+                        <li>
+                            Wireless microphones and digital mixing for clarity
+                            and control
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="callout line-length">
+                    <p>Everything is designed to look as good as it sounds.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TIMING SECTION -->
+        <section class="section container">
+            <div class="stack-xl">
+                <div>
+                    <div class="eyebrow">TIMING</div>
+                    <h2>Up to six hours total.</h2>
+                </div>
+
+                <div class="stack-lg">
+                    <p class="body-secondary line-length">
+                        The Knox Signature Wedding Experience typically covers
+                        up to 5.5 hours total, including:
+                    </p>
+                    <ul class="styled-list line-length">
+                        <li>Cocktail hour</li>
+                        <li>Reception</li>
+                    </ul>
+
+                    <p class="body-secondary line-length">
+                        This timing works well for the majority of weddings and
+                        allows the experience to evolve naturally throughout the
+                        evening.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CUSTOM ENHANCEMENTS SECTION -->
+        <section class="section container">
+            <div class="stack-xl">
+                <div>
+                    <div class="eyebrow">CUSTOM ENHANCEMENTS</div>
+                    <h2>Thoughtfully accommodated when appropriate.</h2>
+                </div>
+
+                <p class="body-secondary line-length">
+                    If there are additional design elements that are important
+                    to you, we're happy to discuss them once we understand your
+                    vision and priorities. When appropriate, we can thoughtfully
+                    accommodate custom enhancements that align with the space
+                    and the overall feel of the event.
+                </p>
+            </div>
+        </section>
+
+        <!-- INVESTMENT SECTION -->
+        <section class="section container">
+            <div class="stack-xl">
+                <div class="eyebrow">INVESTMENT</div>
+                <h2>Three ways to experience Knox Signature.</h2>
+                <p class="lead line-length">
+                    Choose the coverage that fits your vision. Each package
+                    includes our signature blend of live performance and
+                    professional DJ mixing.
+                </p>
+
+                <!-- PRICING IMAGE -->
+                <div style="text-align: center; margin: 0 auto">
+                    <img
+                        src="/assets/Images/pricing.png"
+                        alt="Pricing"
+                        style="max-width: 100%; height: auto"
+                    />
+                </div>
+
+                <div
+                    class="callout line-length"
+                    style="margin-top: var(--space-2xl)"
+                >
+                    <p>
+                        To secure your date, a 50% deposit is required at
+                        booking. The remaining balance is due 30 days before
+                        your wedding date.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CLOSING -->
+        <section class="closing container">
+            <p>
+                We approach every wedding with the same goal: to create an
+                atmosphere your guests remember long after the night ends.
+            </p>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer container">
+            <div class="footer-logo">KNOX SIGNATURE</div>
+            <div class="footer-tagline">Luxury Sax + DJ Atmospheres</div>
+            <div class="footer-contact">
+                Based in Dallas · Available Worldwide<br />
+                <a href="mailto:hello@knoxsignature.com"
+                    >hello@knoxsignature.com</a
+                ><br />
+                <a href="https://knoxsignature.com">knoxsignature.com</a>
+            </div>
+        </footer>
+        <script>
+            document.querySelectorAll(".video-frame").forEach((frame) => {
+                const video = frame.querySelector("video");
+                const button = frame.querySelector(".video-play");
+                if (!video || !button) return;
+
+                const showButton = () => button.classList.remove("is-hidden");
+                const hideButton = () => button.classList.add("is-hidden");
+
+                button.addEventListener("click", () => {
+                    video.play();
+                });
+
+                video.addEventListener("play", hideButton);
+                video.addEventListener("pause", showButton);
+                video.addEventListener("ended", showButton);
+            });
+        </script>
+    </body>
+</html>
